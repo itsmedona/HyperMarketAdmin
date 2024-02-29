@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hyper_mark_adm/core/Login.dart';
 import 'package:hyper_mark_adm/presentation/ProductScreen/controller/ProductScreenController.dart';
-import 'package:hyper_mark_adm/presentation/ProductScreen/view/ProductScreen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -19,7 +19,7 @@ class AdmApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ProductScreen(),
+      home: LoginScreen(),
     );
   }
 }

@@ -35,91 +35,88 @@ class _ProductScreenState extends State<ProductScreen> {
               crossAxisCount: 3,
               mainAxisSpacing: 35,
               crossAxisSpacing: 35,
-              mainAxisExtent: 250,
+              mainAxisExtent: 350,
             ),
-            itemBuilder: (context, index) => GestureDetector(
-              onTap: () {
-                EditProductBottomSheet(context, products[index], index);
-              },
-              child: Container(
-                color: Colors.white,
-                child: Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        height: 100,
-                        width: 100,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.orange,
-                        ),
+            itemBuilder: (context, index) => Container(
+              color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.orange,
                       ),
-                      Text(
-                        products[index].productName,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      products[index].productName,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
                       ),
-                      Text(
-                        products[index].category,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        textAlign: TextAlign.center,
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      products[index].category,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
                       ),
-                      Text(
-                        products[index].description,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        textAlign: TextAlign.center,
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      products[index].description,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
                       ),
-                      Text(
-                        '${products[index].price.toString()}',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        textAlign: TextAlign.center,
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      '${products[index].price.toString()}',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
                       ),
-                      Text(
-                        '${products[index].quantity.toString()}',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        textAlign: TextAlign.center,
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      '${products[index].quantity.toString()}',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
                       ),
-                      ElevatedButton(
-                        onPressed: () {
-                          productProvider.deleteProduct(index);
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.red,
+                      textAlign: TextAlign.center,
+                    ),
+                    Row(
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            EditProductBottomSheet(
+                                context, products[index], index);
+                          },
+                          icon: Icon(Icons.edit),
                         ),
-                        child: Text(
-                          'DELETE',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                          ),
+                        IconButton(
+                          color: Colors.red,
+                          onPressed: () {
+                            productProvider.deleteProduct(index);
+                          },
+                          icon: Icon(Icons.delete),
                         ),
-                      ),
-                    ],
-                  ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -139,6 +136,11 @@ class _ProductScreenState extends State<ProductScreen> {
   void AddProductBottomSheet(BuildContext context) {
     var productProvider =
         Provider.of<ProductController>(context, listen: false);
+    nameController.text = '';
+    categoryController.text = '';
+    descriptionController.text = '';
+    priceController.text = '';
+    quantityController.text = '';
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
