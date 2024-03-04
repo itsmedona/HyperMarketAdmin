@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 //import 'package:hyper_mark_adm/core/Login.dart';
 import 'package:hyper_mark_adm/presentation/ProductScreen/controller/ProductScreenController.dart';
-import 'package:hyper_mark_adm/presentation/UsersListScreen/view/UsersListScreen.dart';
 import 'package:provider/provider.dart';
+
+import 'global_widgets/BottomNavScreen/BottomNavScreen.dart';
 
 void main() {
   runApp(
@@ -19,6 +20,6 @@ class AdmApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false, home: UsersListScreen());
+        debugShowCheckedModeBanner: false, home: BottomNavScreen());
   }
 }
