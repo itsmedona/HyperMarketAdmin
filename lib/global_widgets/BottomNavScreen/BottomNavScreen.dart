@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_mark_adm/presentation/ProductScreen/view/ProductScreen.dart';
-
+import 'package:hyper_mark_adm/presentation/HomeScreen/view/HomeScreen.dart';
 import '../../presentation/CartScreen/view/CartScreen.dart';
 import '../../presentation/ProductsListScreen/view/ProductsListScreen.dart';
 
@@ -14,7 +13,7 @@ class BottomNavScreen extends StatefulWidget {
 class _BottomNavScreenState extends State<BottomNavScreen> {
   int selectedIndex = 0;
   List<Widget> myWidgetList = [
-    ProductScreen(),
+    HomeScreen(),
     CartScreen(),
     ProductsListScreen()
   ];
@@ -38,7 +37,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.shopping_cart), label: "Cart"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.description), label: "Sheet")
+                icon: Icon(Icons.description), label: "Schemes")
           ],
         ),
       ),
